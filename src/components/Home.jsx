@@ -116,7 +116,7 @@ const Home = ()=>{
             return ;
         }
 
-        await axios.post("http://localhost:8080/bills",{items,weights,rates,name}).then( (res)=>{
+        await axios.post("https://stock-manager-server.vercel.app/bills",{items,weights,rates,name}).then( (res)=>{
             console.log(res.data);  
         })
             setItems([]);
