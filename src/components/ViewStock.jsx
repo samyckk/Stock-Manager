@@ -17,7 +17,7 @@ const ViewStock = () => {
 
     return (
         <div className="h-full w-full flex flex-col justify-center items-center mt-24">
-            <h1 className="font-bold text-2xl">सारे Stock देखे</h1>
+            <h1 className="font-bold text-2xl">All Stock</h1>
             
             <table className="border border-black mt-4">
                 <thead>
