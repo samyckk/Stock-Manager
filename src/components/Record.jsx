@@ -28,7 +28,7 @@ const Record = () => {
 
         const getMonthly = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/bills/monthly", {
+                const res = await axios.get("https://stock-manager-server.vercel.app/bills/monthly", {
                     params: { year: year, month: month, name: name }
                 });
                 console.log(res.data);
