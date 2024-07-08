@@ -6,7 +6,7 @@ const ViewStock = () => {
 
     useEffect(() => {
         const fetchStock = async () => {
-            await axios.get("http://localhost:8080/stocks").then((res) => {
+            await axios.get("https://stock-manager-server.vercel.app/stocks").then((res) => {
                 console.log(res.data);
                 setAllStock(res.data);
             });
