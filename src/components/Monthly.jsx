@@ -14,7 +14,7 @@ const Monthly = () => {
 
     useEffect(() => {
         const getMonthly = async () => {
-            await axios.get("http://localhost:8080/bills/details", {
+            await axios.get("https://stock-manager-server.vercel.app/bills/details", {
                     params: { year: year, month: month, name: name }
                 }).then( (res)=>{
                     console.log(res.data);
