@@ -118,7 +118,7 @@ const AddStock = ()=>{
         }
 
         items.map( async(it,index)=>{
-            await axios.put("http://localhost:8080/stocks",{item:it, weight:weights[index], purchase:purchases[index]}).then((res)=>{
+            await axios.put("https://stock-manager-server.vercel.app/stocks",{item:it, weight:weights[index], purchase:purchases[index]}).then((res)=>{
                 console.log(res.data);
             })
         })
