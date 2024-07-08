@@ -130,7 +130,7 @@ const Home = ()=>{
 
     return(
         <div className="flex flex-col justify-center items-center h-full w-full mt-24">
-            <h1 className="text-3xl font-bold" >बिल बनाये</h1>
+            <h1 className="text-3xl font-bold" >Create Bill</h1>
 
             <div id="Billdiv" className="w-[300px] h-[300px] mt-4 bg-blue-500">
                 
