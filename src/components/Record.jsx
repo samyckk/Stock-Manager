@@ -63,7 +63,7 @@ const Record = () => {
 
     return (
         <div className="h-full w-full flex flex-col justify-center items-center mt-24">
-            <h1 className="font-bold text-2xl">सारे बिल देखे</h1>
+            <h1 className="font-bold text-2xl">All Records</h1>
 
             <div className="flex gap-5 flex-col">
 
