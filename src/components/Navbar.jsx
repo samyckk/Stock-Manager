@@ -55,7 +55,7 @@ function Navbar() {
                   className={`block py-2 px-3 ${category === "general" ? "md:text-blue-500 bg-blue-500" : ""}   rounded md:hover:text-blue-500 hover:bg-gray-700 md:hover:bg-transparent md:bg-transparent md:p-0 `}
                   aria-current="page"
                 >
-                  बिल बनाये
+                  Create Bill
                 </Link>
               </li>
               <li>
@@ -64,7 +64,7 @@ function Navbar() {
                   onClick={() => { handleMenu(); setCategory("sports"); }}
                   className={`block py-2 px-3 rounded md:border-0 ${category === "sports" ? "md:text-blue-500 bg-blue-500"  : ""} md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:md:hover:bg-transparent md:bg-transparent `}
                 >
-                  सारे बिल देखे
+                  All Bills
                 </Link>
               </li>
 
@@ -74,7 +74,7 @@ function Navbar() {
                   onClick={() => { handleMenu(); setCategory("technology"); }}
                   className={`block py-2 px-3 rounded md:border-0 ${category === "technology" ? "md:text-blue-500 bg-blue-500" : ""} md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:md:hover:bg-transparent md:bg-transparent`}
                 >
-                  Stock जोड़ें
+                  Add Stock
                 </Link>
               </li>
               <li>
@@ -83,7 +83,7 @@ function Navbar() {
                   onClick={() => { handleMenu(); setCategory("science"); }}
                   className={`block py-2 px-3 rounded md:border-0 ${category === "science" ? "md:text-blue-500 bg-blue-500" : ""} md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:md:hover:bg-transparent md:bg-transparent`}
                 >
-                  सारे Stock देखे
+                  All Stock
                 </Link>
               </li>
               <li>
