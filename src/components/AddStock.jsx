@@ -134,7 +134,7 @@ const AddStock = ()=>{
 
     return (
         <div className="h-full w-full flex flex-col justify-center items-center mt-24">
-            <h1 className="font-bold text-2xl">Add Stock</h1>
+            <h1 className="font-bold text-2xl">Stock जोड़ें</h1>
 
             <div id="Billdiv" className="w-[300px] h-[300px] mt-4 bg-[#F09536]">
                 
@@ -160,6 +160,7 @@ const AddStock = ()=>{
             <Table items={items} weights={weights} rates={purchases}/>
 
             <div onClick={handleAddStock} className="text-lg rounded-lg bg-blue-400 px-2 py-1 mt-4 cursor-pointer">Add Stock</div>
+            
         </div>
     )
 }
