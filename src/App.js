@@ -13,7 +13,7 @@ export default function App() {
   const [show, setShow] = useState(false);
 
   useEffect(()=>{
-    const pass = prompt("Enter your password");
+    const pass = prompt("Enter your password : (0000)");
     if(pass === process.env.REACT_APP_PASS){
       setShow(true);
     }
