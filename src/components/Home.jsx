@@ -5,6 +5,8 @@ import Select from 'react-select';
 
 const Home = ()=>{
 
+    const [loading, setLoading] = useState(false);
+
     const [items, setItems] = useState([]);
     const [weights, setWeights] = useState([]);
     const [rates, setRates] = useState([]);
@@ -100,11 +102,14 @@ const Home = ()=>{
 
     const handleGenerate = async()=>{
 
+        setLoading(true);
+
         const hasDuplicates = () => {
             for (let i = 0; i < items.length; i++) {
                 for (let j = i + 1; j < items.length; j++) {
                     if (items[i] === items[j]) {
                         alert("Duplicates not allowed !!");
+                        
                         return true; // Duplicate found
                     }
                 }
@@ -113,12 +118,19 @@ const Home = ()=>{
         };
 
         if(hasDuplicates() === true){
+            setLoading(false);
             return ;
         }
 
-        await axios.post("https://stock-manager-server.vercel.app/bills",{items,weights,rates,name}).then( (res)=>{
-            console.log(res.data);  
-        })
+       await axios.post("https://stock-manager-server.vercel.app/bills", { items, weights, rates, name })
+    .then((res) => {
+        console.log(res.data);
+        setLoading(false);
+    })
+    .catch((err) => {
+        alert(err.response.data);
+        setLoading(false);
+    });
             setItems([]);
             setWeights([]);
             setRates([]);
@@ -130,7 +142,7 @@ const Home = ()=>{
 
     return(
         <div className="flex flex-col justify-center items-center h-full w-full mt-24">
-            <h1 className="text-3xl font-bold" >Create Bill</h1>
+            <h1 className="text-3xl font-bold" >बिल बनाये</h1>
 
             <div id="Billdiv" className="w-[300px] h-[300px] mt-4 bg-blue-500">
                 
@@ -141,7 +153,8 @@ const Home = ()=>{
                     <option value="Sardarji">Sardarji</option>
                     <option value="Hakeem">Hakeem</option>
                     <option value="Rakesh">Rakesh</option>
-                    <option value="Aone">Aone</option>
+                    <option value="No. 1">No. 1</option>
+                    <option value="Harun">Harun</option>
                     <option value="Other">Other</option>
                 </select>
 
@@ -163,7 +176,12 @@ const Home = ()=>{
                 
             </div>
 
-            <Table items={items} weights={weights} rates={rates}/>
+            {
+                loading ? (<div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="" srcset="" /></div>)
+                :
+                (<Table items={items} weights={weights} rates={rates}/>)
+            }
+            
 
 
             <div onClick={handleGenerate} className="text-lg rounded-lg bg-blue-400 px-2 py-1 mt-4 cursor-pointer">Generate Bill</div>
