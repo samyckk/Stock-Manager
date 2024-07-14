@@ -5,6 +5,8 @@ import Select from 'react-select';
 
 
 const AddStock = ()=>{
+    const [loading, setLoading] = useState(false);
+
     const [items, setItems] = useState([]);
     const [weights, setWeights] = useState([]);
     const [purchases, setPurchases] = useState([]);
@@ -94,6 +96,7 @@ const AddStock = ()=>{
     }
 
     const handleAddStock = async()=>{
+        setLoading(true);
 
         const hasDuplicates = () => {
             for (let i = 0; i < items.length; i++) {
@@ -114,12 +117,15 @@ const AddStock = ()=>{
             setItem("");
             setWeight("");
             setPurchase("");
+
+            setLoading(false);
             return ;
         }
 
         items.map( async(it,index)=>{
             await axios.put("https://stock-manager-server.vercel.app/stocks",{item:it, weight:weights[index], purchase:purchases[index]}).then((res)=>{
                 console.log(res.data);
+                setLoading(false);
             })
         })
 
@@ -157,7 +163,12 @@ const AddStock = ()=>{
                 </form>
                 
             </div>
-            <Table items={items} weights={weights} rates={purchases}/>
+
+             {
+                loading ? (<div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="" srcset="" /></div>)
+                :
+                (<Table items={items} weights={weights} rates={purchases}/>)
+            }
 
             <div onClick={handleAddStock} className="text-lg rounded-lg bg-blue-400 px-2 py-1 mt-4 cursor-pointer">Add Stock</div>
             
