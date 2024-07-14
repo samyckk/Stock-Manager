@@ -37,7 +37,7 @@ export default function App() {
     :
     (<div className="w-full flex items-center justify-center mt-8">
         <h1 className="text-xl font-semibold">
-        Wrong Password, Please reload to enter password again</h1>
+        Wrong Password,Please Reload to try again</h1>
     </div>
     )
 
